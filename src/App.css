@@ -1,0 +1,19 @@
+.basic-form{
+  width: 750px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px dashed #cdcdcd;
+}
+
+.input-form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input{
+  height: 30px;
+  margin: 10px;
+}
+.submit{
+  height: 38px;
+}
