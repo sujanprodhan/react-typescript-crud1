@@ -17,3 +17,16 @@
 .submit{
   height: 38px;
 }
+.courselist .course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cdcdcd;
+  padding: 10px;
+  margin: 10px;
+}
+.delete{
+  color: red;
+  padding: 10px;
+  cursor: pointer;
+}

@@ -1,10 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, MouseEvent } from 'react';
 import './App.css';
+import Course from './components/course';
 
-interface courseProp{
+interface courseProp {
   courseName: string;
   courseDuration: number;
-  courseTeacher:string;
+  courseTeacher: string;
 }
 const App: React.FC = () => {
   const [courseName, setCourseName] = useState<string>("");
@@ -21,9 +22,19 @@ const App: React.FC = () => {
   const handleCourseTeacher = (event: ChangeEvent<HTMLInputElement>): void => {
     setCourseTeacher(event?.target.value);
   }
-  const addCourse =():void => {
-    let newCourse = {courseName: courseName, courseTeacher:courseTeacher,courseDuration: courseDuration};
-    setCourseList([...courseList, newCourse]);
+  const addCourse = (event: MouseEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    if (courseName && courseTeacher && courseDuration) {
+      let newCourse = { courseName: courseName, courseTeacher: courseTeacher, courseDuration: courseDuration };
+      setCourseList([...courseList, newCourse]);
+      setCourseName("");
+      setCourseDuration(1);
+      setCourseTeacher("");
+    }
+    else {
+      alert("Please fill all the fileds")
+    }
+
   }
 
   return (
@@ -67,7 +78,16 @@ const App: React.FC = () => {
             />
           </form>
         </div>
+
+        <div className="courselist">
+          {
+            courseList.map((course: courseProp, key: number) => {
+              return <Course data={course} key={key} />
+            })
+          }
+        </div>
       </div>
+
     </div>
   );
 }
