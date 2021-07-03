@@ -34,7 +34,11 @@ const App: React.FC = () => {
     else {
       alert("Please fill all the fileds")
     }
+  }
 
+  const deleteCourse = (index: number) => {
+    courseList.splice(index, 1);
+    setCourseList([...courseList]);
   }
 
   return (
@@ -81,8 +85,8 @@ const App: React.FC = () => {
 
         <div className="courselist">
           {
-            courseList.map((course: courseProp, key: number) => {
-              return <Course data={course} key={key} />
+            courseList.map((course: courseProp, index: number) => {
+              return <Course data={course} key={index} itemNo={index} deleteCourse={deleteCourse} />
             })
           }
         </div>

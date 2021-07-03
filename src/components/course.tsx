@@ -5,15 +5,17 @@ interface courseProp {
 }
 
 interface dataProps {
-    data: courseProp
+    data: courseProp;
+    itemNo: number;
+    deleteCourse(index: number): void
 }
 
-const Course = ({ data }: dataProps) => {
+const Course = ({ data, itemNo, deleteCourse }: dataProps) => {
     return (<div className="course">
-        <div className="course-name"> {data.courseName} </div>
-        <div className="course-name"> {data.courseDuration} </div>
-        <div className="course-name"> {data.courseTeacher} </div>
-        <div className="course-name delete"> Delete </div>
+        <div className=""> {data.courseName} </div>
+        <div className=""> {data.courseDuration} </div>
+        <div className=""> {data.courseTeacher} </div>
+        <div className="delete" onClick={() => { deleteCourse(itemNo) }}> Delete</div>
     </div>
     )
 }
