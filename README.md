@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# React with typescript basic CRUD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Git clone
 
 ## Available Scripts
 
